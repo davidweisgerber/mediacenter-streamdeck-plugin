@@ -1,0 +1,49 @@
+{
+	"Name": "mediacenter-dmx-control",
+	"Version": "0.1.0.0",
+	"Author": "David Weisgerber",
+	"Actions": [
+		{
+			"Name": "Activate Preset",
+			"UUID": "de.fourconnected.mediacenter.dmx-control.activatepreset",
+			"Icon": "imgs/actions/activate-preset/icon",
+			"Tooltip": "Activates a DMX preset in Mediacenter",
+			"PropertyInspectorPath": "ui/activate-preset.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"DisableAutomaticStates": true,
+			"UserTitleEnabled": false,
+			"States": [
+				{
+					"TitleAlignment": "top",
+					"Image": "imgs/actions/activate-preset/key-black"
+				}
+			]
+		}
+	],
+	"Category": "mediacenter-dmx-control",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "Control Mediacenter via Streamdeck",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 2,
+	"Software": {
+		"MinimumVersion": "6.4"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "10.15"
+		},
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "de.fourconnected.mediacenter.dmx-control"
+}
