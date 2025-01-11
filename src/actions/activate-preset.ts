@@ -25,18 +25,22 @@ export class ActivatePreset extends SingletonAction<ActivatePresetSettings> {
 			const settings = await action.getSettings();
 			const url = 'http://' + `${settings.host ?? 'localhost'}` + ':' + `${settings.portNo ?? 8089}` + '/get/' + `${settings.presetNo ?? 1}`;
 
-			const response = await fetch(url);
-			const data = await response.json() as { title: string; current: boolean; comment: string; };
+			try {
+				const response = await fetch(url);
+				const data = await response.json() as { title: string; current: boolean; comment: string; };
 
-			const title = `${settings.presetNo ?? 1}` + "\n" + data.title;
-			if (title !== settings.title) {
-				await action.setTitle(title);
-				settings.title = title;
-			}
+				const title = `${settings.presetNo ?? 1}` + "\n" + data.title;
+				if (title !== settings.title) {
+					await action.setTitle(title);
+					settings.title = title;
+				}
 
-			if (data.current !== settings.active) {
-				await this.setActivatedKey(data.current, action);
-				settings.active = data.current;
+				if (data.current !== settings.active) {
+					await this.setActivatedKey(data.current, action);
+					settings.active = data.current;
+				}
+			} catch (e: unknown) {
+				await action.showAlert();
 			}
 		}
 	}
