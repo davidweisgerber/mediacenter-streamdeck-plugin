@@ -42,10 +42,12 @@ export class ActivatePreset extends SingletonAction<ActivatePresetSettings> {
 	}
 
 	async setActivatedKey(activate: boolean, action: DialAction<ActivatePresetSettings> | KeyAction<ActivatePresetSettings>): Promise<void> {
-		if (activate) {
-			await action.setImage('imgs/actions/activate-preset/key-white');
-		} else {
-			await action.setImage('');
+		if ("setState" in action) {
+			if (activate) {
+				await action.setState(1);
+			} else {
+				await action.setState(0);
+			}
 		}
 	}
 

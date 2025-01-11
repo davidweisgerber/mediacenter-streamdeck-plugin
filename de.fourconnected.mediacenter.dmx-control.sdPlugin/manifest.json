@@ -16,8 +16,16 @@
 			"UserTitleEnabled": false,
 			"States": [
 				{
+					"Name": "Inactive",
 					"TitleAlignment": "top",
-					"Image": "imgs/actions/activate-preset/key-black"
+					"Image": "imgs/actions/activate-preset/key-black",
+					"TitleColor": "#ffffff"
+				},
+				{
+					"Name": "Active",
+					"TitleAlignment": "top",
+					"Image": "imgs/actions/activate-preset/key-white",
+					"TitleColor": "#000000"
 				}
 			]
 		}
